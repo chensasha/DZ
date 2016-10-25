@@ -1,0 +1,28 @@
+#include <iostream>;
+#include <conio.h>;
+
+using namespace std;
+
+int GCD (int a, int b)
+{
+    if (a==0) {
+        return b;
+}
+    if (b==0) {
+        return a;
+}
+    return GCD (b, a%b);
+}
+
+int main ()
+{
+    int n;
+    cin>>n;
+    for (int i=1; i<n; i++) {
+        if (GCD(i,n)==1)
+    {
+        cout<<i<<",";
+    }
+}
+    return 0;
+}
