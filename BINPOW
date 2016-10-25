@@ -1,0 +1,29 @@
+#include <iostream>;
+#include <conio.h>;
+
+using namespace std;
+
+int binpow (double n, int m)
+{
+    if (m==0) {
+        return 1;
+}
+    if (m%2==0)
+    {
+        int a=binpow(n,m/2);
+        return a*a;
+    }
+    else {
+        return binpow (n,m-1)*n;
+}
+}
+
+int main ()
+{
+    int m;
+    double n;
+    cin>>n;
+    cin>>m;
+    cout<<binpow(n,m);
+    return 0;
+}
