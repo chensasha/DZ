@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+ 
+int q (int *a, int l, int r, int n)
+{
+    int s=(l+r)/2;
+    int x = a[s];
+    int i = l;
+    int j = r;
+    while(i <= j)
+    {
+        while(a[i] < x) i++;
+        while(a[j] > x) j--;
+        if(i <= j)
+        {
+            swap(a[i], a[j]);
+            i++;
+            j--;
+        }
+    }
+    if (s>(2*n)/3) {
+    	q(a, 0, s, n);
+    }
+    else {
+        if (s<(2*n)/3) {
+            q(a, s, n, n);
+        }
+        else {
+            return a[s-1];
+        }
+    }
+}
+ 
+int main() {
+    int n;
+    cin>>n;
+    int arr[n];
+    for (int i=0; i<n; i++) {
+        cin>>arr[i];
+    }
+    cout<<q(arr, 0, n, n);
+    return 0;
+}
